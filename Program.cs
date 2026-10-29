@@ -3,22 +3,7 @@ do
 {
     MostrarMenu();
 
-    if (!int.TryParse(Console.ReadLine(), out opcionDeMenu))
-    {
-        Console.WriteLine("Error: Opción Inválida");
-        Pausar();
-    }
-    else
-    {
-        if (opcionDeMenu < 1 || opcionDeMenu > 5)
-        {
-            Console.WriteLine("Error: Opción Fuera del Rango (1 - 5)");
-            Pausar();
-        }
-
-
-    }
-
+    opcionDeMenu = LeerOpcion();
 
 
 
@@ -62,4 +47,24 @@ static void Pausar()
 {
     Console.WriteLine("Presione una tecla para reintentar...");
     Console.ReadKey();
+}
+
+static int LeerOpcion()
+{
+    int opcionDeMenu;
+    if (!int.TryParse(Console.ReadLine(), out opcionDeMenu))
+    {
+        Console.WriteLine("Error: Opción Inválida");
+        Pausar();
+        return 0;
+    }
+
+    if (opcionDeMenu < 1 || opcionDeMenu > 5)
+    {
+        Console.WriteLine("Error: Opción Fuera del Rango (1 - 5)");
+        Pausar();
+        return 0;
+    }
+
+    return opcionDeMenu;
 }
