@@ -13,7 +13,12 @@ do
         case 2:
         case 3:
         case 4:
-            Console.WriteLine($"Operación {opcionDeMenu}: pendiente de implementar");
+            //Console.WriteLine($"Operación {opcionDeMenu}: pendiente de implementar");
+            //Pausar();
+            Console.WriteLine($"Sumar(10, 5) = {Sumar(10, 5)}");
+            Console.WriteLine($"Restar(10, 5) = {Restar(10, 5)}");
+            Console.WriteLine($"Multiplicar(10, 5) = {Multiplicar(10, 5)}");
+            Console.WriteLine($"Dividir(10, 5) = {Dividir(10, 5)}");
             Pausar();
             break;
 
@@ -85,4 +90,25 @@ static decimal LeerDecimal(string mensaje)
     } while (!esValido);
 
     return valor;
+}
+
+//METODOS PARA LAS OPERACIONES
+static decimal Sumar(decimal a, decimal b)
+{
+    return a + b;
+}
+
+static decimal Restar(decimal a, decimal b)
+{
+    return a - b;
+}
+
+static decimal Multiplicar(decimal a, decimal b)
+{
+    return a * b;
+}
+
+static decimal Dividir(decimal a, decimal b)
+{
+    return a / b;
 }
