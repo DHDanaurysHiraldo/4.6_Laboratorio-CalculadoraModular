@@ -5,25 +5,21 @@ do
 
     opcionDeMenu = LeerOpcion();
 
+    switch (opcionDeMenu)
+    {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+            Console.WriteLine($"Operación {opcionDeMenu}: pendiente de implementar");
+            Pausar();
+            break;
 
-
-    //switch (opcionDeMenu)
-    //{
-    //    case 1:
-    //        break;
-
-    //    case 2:
-    //        break;
-
-    //    case 3:
-    //        break;
-
-    //    case 4:
-    //        break;
-
-    //    default:
-    //        break;
-    //}
+        case 5:
+            Console.WriteLine();
+            Console.WriteLine("Gracias por usar la calculadora. ¡Hasta luego!");
+            break;
+    }
 
 }
 while (opcionDeMenu != 5);
@@ -45,8 +41,8 @@ static void MostrarMenu()
 
 static void Pausar()
 {
-    Console.WriteLine("Presione una tecla para reintentar...");
-    Console.ReadKey();
+    Console.WriteLine("Presione una tecla para continuar...");
+    Console.ReadKey(true);
 }
 
 static int LeerOpcion()
