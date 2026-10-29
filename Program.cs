@@ -13,15 +13,9 @@ do
         case 2:
         case 3:
         case 4:
-            //Console.WriteLine($"Operación {opcionDeMenu}: pendiente de implementar");
-            //Pausar();
-            Console.WriteLine($"Sumar(10, 5) = {Sumar(10, 5)}");
-            Console.WriteLine($"Restar(10, 5) = {Restar(10, 5)}");
-            Console.WriteLine($"Multiplicar(10, 5) = {Multiplicar(10, 5)}");
-            Console.WriteLine($"Dividir(10, 5) = {Dividir(10, 5)}");
-            Pausar();
+            EjecutarOperacion(opcionDeMenu);
             break;
-
+            
         case 5:
             Console.WriteLine();
             Console.WriteLine("Gracias por usar la calculadora. ¡Hasta luego!");
@@ -111,4 +105,43 @@ static decimal Multiplicar(decimal a, decimal b)
 static decimal Dividir(decimal a, decimal b)
 {
     return a / b;
+}
+
+static void EjecutarOperacion(int opcion)
+{
+    decimal a = LeerDecimal("Ingrese el primer número: ");
+    decimal b = LeerDecimal("Ingrese el segundo número: ");
+
+    switch (opcion)
+    {
+        case 1:
+            MostrarResultado("+", a, b, Sumar(a, b));
+            break;
+
+        case 2:
+            MostrarResultado("-", a, b, Restar(a, b));
+            break;
+
+        case 3:
+            MostrarResultado("*", a, b, Multiplicar(a, b));
+            break;
+
+        case 4:
+            if (b == 0)
+            {
+                Console.WriteLine("Error: No se puede dividir entre cero.");
+            }
+            else
+            {
+                MostrarResultado("/", a, b, Dividir(a, b));
+            }
+            break;
+    }
+
+    Pausar();
+}
+
+static void MostrarResultado(string simbolo, decimal a, decimal b, decimal resultado)
+{
+    Console.WriteLine($"Resultado: {a} {simbolo} {b} = {resultado}");
 }
