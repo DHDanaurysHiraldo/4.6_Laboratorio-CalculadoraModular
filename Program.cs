@@ -6,12 +6,14 @@ do
     if (!int.TryParse(Console.ReadLine(), out opcionDeMenu))
     {
         Console.WriteLine("Error: Opción Inválida");
+        Pausar();
     }
     else
     {
         if (opcionDeMenu < 1 || opcionDeMenu > 5)
         {
             Console.WriteLine("Error: Opción Fuera del Rango (1 - 5)");
+            Pausar();
         }
 
 
@@ -54,4 +56,10 @@ static void MostrarMenu()
     Console.WriteLine("5. Salir");
     Console.WriteLine();
     Console.Write("Seleccione la operación: ");
+}
+
+static void Pausar()
+{
+    Console.WriteLine("Presione una tecla para reintentar...");
+    Console.ReadKey();
 }
