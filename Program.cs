@@ -1,4 +1,6 @@
-﻿int opcionDeMenu;
+﻿using System.Globalization;
+
+int opcionDeMenu;
 do
 {
     MostrarMenu();
@@ -63,4 +65,24 @@ static int LeerOpcion()
     }
 
     return opcionDeMenu;
+}
+
+// VALIDA QUE LA ENTRADA DEL USUARIO SEA NUMÉRICA (Tipo DecimaL)
+static decimal LeerDecimal(string mensaje)
+{
+    decimal valor;
+    bool esValido;
+
+    do
+    {
+        Console.Write(mensaje);
+        esValido = decimal.TryParse(Console.ReadLine(), NumberStyles.Number, CultureInfo.InvariantCulture, out valor);
+
+        if (!esValido)
+        {
+            Console.WriteLine("Error: Valor inválido. Ingrese un número (use punto para decimales).");
+        }
+    } while (!esValido);
+
+    return valor;
 }
