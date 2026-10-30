@@ -58,13 +58,17 @@ Seleccione la operación:
 
 Selecciona una opción del 1 al 4, ingresa los dos números y se mostrará el resultado. La opción 5 finaliza el programa.
 
+> **Nota:** los decimales se ingresan con **punto** (por ejemplo, `2.5`). El programa usa `CultureInfo.InvariantCulture`, por lo que funciona igual sin importar la configuración regional del equipo.
+
+![Ejemplo de ejecución](docs/evidencias/CP-01-suma.png)
+
 ## Estructura del proyecto
 
 ```text
 4.6_Laboratorio-CalculadoraModular/
 ├── docs/
 │   ├── pseudocodigo.md      # Pseudocódigo del algoritmo principal
-│   └── evidencias/          # Capturas de los casos de prueba
+│   └── evidencias/          # Capturas de los casos de prueba (CP-01 a CP-11)
 ├── Program.cs               # Código fuente de la calculadora
 ├── *.csproj                 # Archivo del proyecto
 ├── *.slnx                   # Archivo de la solución
@@ -76,7 +80,8 @@ Selecciona una opción del 1 al 4, ingresa los dos números y se mostrará el re
 | Método | Responsabilidad |
 |---|---|
 | `MostrarMenu()` | Muestra las opciones disponibles |
-| `LeerOpcion()` | Lee y valida la opción del menú |
+| `LeerOpcion()` | Lee y valida la opción del menú; retorna `0` si no es válida |
+| `Pausar()` | Espera una tecla para que el usuario pueda leer los mensajes |
 | `EjecutarOperacion(int opcion)` | Solicita los números y ejecuta la operación elegida |
 | `LeerDecimal(string mensaje)` | Solicita un número hasta que sea válido |
 | `MostrarResultado(...)` | Presenta la operación, los operandos y el resultado |
@@ -87,21 +92,21 @@ Selecciona una opción del 1 al 4, ingresa los dos números y se mostrará el re
 
 ## Casos de prueba
 
-| ID | Escenario | Resultado esperado | Estado |
-|---|---|---|---|
-| CP-01 | Sumar 10 + 5 | 15 | ⏳ Pendiente |
-| CP-02 | Restar 10 - 5 | 5 | ⏳ Pendiente |
-| CP-03 | Multiplicar 10 × 5 | 50 | ⏳ Pendiente |
-| CP-04 | Dividir 10 / 5 | 2 | ⏳ Pendiente |
-| CP-05 | Dividir 10 / 0 | Mensaje de error; menú continúa | ⏳ Pendiente |
-| CP-06 | Introducir ABC como número | Solicita el dato nuevamente | ⏳ Pendiente |
-| CP-07 | Seleccionar opción 9 | Opción inválida; menú continúa | ⏳ Pendiente |
-| CP-08 | Sumar -10 + 5 | -5 | ⏳ Pendiente |
-| CP-09 | Sumar 2.5 + 1.5 | 4 | ⏳ Pendiente |
-| CP-10 | Ejecutar dos operaciones consecutivas | Ambas se ejecutan sin reiniciar | ⏳ Pendiente |
-| CP-11 | Seleccionar opción 5 | Mensaje de despedida y finalización | ⏳ Pendiente |
+| ID | Escenario | Resultado esperado | Estado | Evidencia |
+|---|---|---|---|---|
+| CP-01 | Sumar 10 + 5 | 15 | ✅ Aprobado | [Ver](docs/evidencias/CP-01-suma.png) |
+| CP-02 | Restar 10 - 5 | 5 | ✅ Aprobado | [Ver](docs/evidencias/CP-02-resta.png) |
+| CP-03 | Multiplicar 10 × 5 | 50 | ✅ Aprobado | [Ver](docs/evidencias/CP-03-multiplicacion.png) |
+| CP-04 | Dividir 10 / 5 | 2 | ✅ Aprobado | [Ver](docs/evidencias/CP-04-division.png) |
+| CP-05 | Dividir 10 / 0 | Mensaje de error; menú continúa | ✅ Aprobado | [Ver](docs/evidencias/CP-05-division-entre-cero.png) |
+| CP-06 | Introducir ABC como número | Solicita el dato nuevamente | ✅ Aprobado | [Ver](docs/evidencias/CP-06-entrada-invalida.png) |
+| CP-07 | Seleccionar opción 9 | Opción inválida; menú continúa | ✅ Aprobado | [Ver](docs/evidencias/CP-07-opcion-invalida.png) |
+| CP-08 | Sumar -10 + 5 | -5 | ✅ Aprobado | [Ver](docs/evidencias/CP-08-suma-negativo.png) |
+| CP-09 | Sumar 2.5 + 1.5 | 4 | ✅ Aprobado | [Ver](docs/evidencias/CP-09-suma-decimales.png) |
+| CP-10 | Ejecutar dos operaciones consecutivas | Ambas se ejecutan sin reiniciar | ✅ Aprobado | [1](docs/evidencias/CP-10a-primera-operacion.png) · [2](docs/evidencias/CP-10b-segunda-operacion.png) |
+| CP-11 | Seleccionar opción 5 | Mensaje de despedida y finalización | ✅ Aprobado | [Ver](docs/evidencias/CP-11-salir.png) |
 
-Las capturas de cada caso se encuentran en [`docs/evidencias/`](docs/evidencias/).
+Todas las capturas se encuentran en [`docs/evidencias/`](docs/evidencias/).
 
 ## Matriz de trazabilidad
 
